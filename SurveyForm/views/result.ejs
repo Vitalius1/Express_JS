@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form Result</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+</head>
+
+<body>
+    <div id="result">
+        <h3>Submitted Information</h3>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><%= result.name %></td>
+            </tr>
+            <tr>
+                <td>Dojo Location:</td>
+                <td><%= result.loc %></td>
+            </tr>
+            <tr>
+                <td>Favorite Language:</td>
+                <td><%= result.lang %></td>
+            </tr>
+            <tr>
+                <td>Comment:</td>
+                <td><%= result.com %></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <a href="/"><button id="button">Go Back</button></a>
+    </div>
+</body>
+
+</html>

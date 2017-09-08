@@ -1,0 +1,17 @@
+#result {
+    width: 30%;
+    height: auto;
+    margin: 20px auto;
+    border: 3px solid black;
+}
+#button {
+    display: block;
+    margin-left: 80%;
+    margin-bottom: 10px;
+    width: auto;
+    color: white;
+    background: lightblue;
+}
+a{
+    text-decoration: none;
+}

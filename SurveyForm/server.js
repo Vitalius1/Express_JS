@@ -13,20 +13,24 @@ app.set('view engine', 'ejs');
 
 // root route to render the index.ejs view
 app.get('/', function (req, res) {
-    if(!req.session.count){
-        req.session.count = 0;
-    }
-    res.render("index", {count: req.session.count});
+    res.render("index");
+});
+app.get('/', function (req, res) {
+    
+    res.render("index");
 });
 
 
 // post route for adding a user
-// app.post('/users', function (req, res) {
-//     console.log("POST DATA", req.body);
-//     // This is where we would add the user to the database
-//     // Then redirect to the root route
-//     res.redirect('/');
-// });
+app.post('/result', function (req, res) {
+    obj = {
+        name:req.body.name,
+        loc:req.body.loc,
+        lang:req.body.lang,
+        com:req.body.com,
+    };
+    res.render('result', {result:obj});
+});
 
 
 // tell the express app to listen on port 8000
