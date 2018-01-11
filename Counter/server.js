@@ -4,7 +4,7 @@ var express = require("express");
 var path = require("path");
 var app = express();
 var bodyParser = require('body-parser');
-app.use(session({secret: 'codingdojorocks'}));  // string for encryption
+app.use(session({ secret: 'codingdojorocks' }));  // string for encryption
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./static")));
 app.set('views', path.join(__dirname, './views'));
@@ -13,21 +13,24 @@ app.set('view engine', 'ejs');
 
 // root route to render the index.ejs view
 app.get('/', function (req, res) {
-    if(!req.session.count){
+    if (req.session.count || req.session.count == 0) {
+        req.session.count++
+    }
+    else {
         req.session.count = 0;
     }
-    res.render("index", {count: req.session.count});
+    res.render("index", { count: req.session.count });
 });
 app.get('/click', function (req, res) {
-    req.session.count +=1;
+    // req.session.count +=1;
     res.redirect("/");
 });
 app.get('/click2', function (req, res) {
-    req.session.count += 2;
+    req.session.count += 1;
     res.redirect("/");
 });
 app.get('/reset', function (req, res) {
-    req.session.count = 0;
+    req.session.destroy();
     res.redirect("/");
 });
 
